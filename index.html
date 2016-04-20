@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="content">
+            <h2>Spotify Preview</h2>
+            <input type="text" class="form-control" id="search" placeholder="Busca una canción o artista">
+            <div class="results">
+                <div class="songs">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script id="results-template" type="text/x-handlebars-template">
+        {{#each tracks.items}}
+        <div class="item">
+            <div class="image col-sm-4">
+                <img src="{{album.images.0.url}}" alt="">
+            </div>
+            <div class="info col-sm-8">
+                <div class="name">{{name}}</div>
+                <div class="artist">{{artists.0.name}}</div>
+                <audio src="{{preview_url}}" type="audio/mpeg" controls></audio>
+            </div>
+        </div>
+        {{/each}}
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.3/handlebars.min.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
